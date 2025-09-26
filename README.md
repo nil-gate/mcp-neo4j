@@ -18,6 +18,12 @@ This lets you use Claude Desktop, or any other MCP Client (VS Code, Cursor, Wind
 
 Get database schema for a configured database and execute generated read and write Cypher queries on that database.
 
+### `mcp-neo4j-typescript` - TypeScript Neo4j MCP server
+
+[Details in Readme](./servers/mcp-neo4j-typescript/)
+
+TypeScript implementation of Neo4j MCP server with schema introspection and Cypher query execution. Features full type safety, comprehensive error handling, and follows the MCP tool pattern.
+
 ### `mcp-neo4j-memory` - knowledge graph memory stored in Neo4j
 
 [Details in Readme](./servers/mcp-neo4j-memory/)

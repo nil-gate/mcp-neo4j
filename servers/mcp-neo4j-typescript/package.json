@@ -1,0 +1,42 @@
+{
+  "name": "mcp-neo4j-typescript",
+  "version": "0.1.0",
+  "description": "TypeScript Neo4j MCP Server",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/cli.js",
+    "dev": "npm run build && node dist/src/cli.js",
+    "cli": "npm run build && node dist/src/cli.js",
+    "test": "echo 'Tests not implemented yet'",
+    "lint": "echo 'Linting not configured yet'",
+    "clean": "rm -rf dist"
+  },
+  "bin": {
+    "mcp-neo4j-typescript": "./dist/src/cli.js"
+  },
+  "dependencies": {
+    "neo4j-driver": "^5.26.0",
+    "zod": "^3.23.8",
+    "commander": "^12.0.0"  
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "eslint": "^8.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "neo4j",
+    "typescript",
+    "graph-database"
+  ],
+  "author": "",
+  "license": "MIT"
+}
