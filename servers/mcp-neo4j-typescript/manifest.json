@@ -1,0 +1,88 @@
+{
+  "dxt_version": "0.1",
+  "name": "mcp-neo4j-typescript",
+  "display_name": "Neo4j TypeScript MCP Server",
+  "version": "0.1.0",
+  "description": "TypeScript implementation of Neo4j MCP server for schema introspection and Cypher query execution.",
+  "long_description": "A TypeScript Model Context Protocol (MCP) server that provides tools for interacting with Neo4j graph databases. Features schema introspection using APOC procedures and Cypher query execution with parameter support, type safety, and comprehensive error handling.",
+  "author": {
+    "name": "GitHub Copilot"
+  },
+  "keywords": ["neo4j", "typescript", "cypher", "graph", "database", "mcp", "ai", "llm"],
+  "categories": ["database", "graph", "query", "typescript"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nil-gate/mcp-neo4j/tree/main/servers/mcp-neo4j-typescript"
+  },
+  "documentation": "https://github.com/nil-gate/mcp-neo4j/blob/main/servers/mcp-neo4j-typescript/README.md",
+  "support": "https://github.com/nil-gate/mcp-neo4j/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "dist/src/cli.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["dist/src/cli.js"],
+      "env": {
+        "NEO4J_URL": "${user_config.neo4j_uri}",
+        "NEO4J_USERNAME": "${user_config.neo4j_username}",
+        "NEO4J_PASSWORD": "${user_config.neo4j_password}",
+        "NEO4J_DATABASE": "${user_config.neo4j_database}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "get_neo4j_schema",
+      "description": "List all nodes, their attributes and their relationships to other nodes in the neo4j database. This requires that the APOC plugin is installed and enabled."
+    },
+    {
+      "name": "run_cypher_query",
+      "description": "Execute a Cypher query on the Neo4j database. Supports both read and write operations with parameter binding."
+    }
+  ],
+  "prompts": [],
+  "tools_generated": false,
+  "license": "MIT",
+  "user_config": {
+    "neo4j_username": {
+      "type": "string",
+      "title": "Neo4j Username",
+      "description": "The username for logging into Neo4j",
+      "default": "neo4j",
+      "required": true,
+      "sensitive": false
+    },
+    "neo4j_password": {
+      "type": "string",
+      "title": "Neo4j Password",
+      "description": "The password for logging into Neo4j",
+      "default": "password",
+      "required": true,
+      "sensitive": true
+    },
+    "neo4j_database": {
+      "type": "string",
+      "title": "Neo4j Database",
+      "description": "The database to use in Neo4j, defaults to neo4j",
+      "default": "neo4j",
+      "required": false,
+      "sensitive": false
+    },
+    "neo4j_uri": {
+      "type": "string",
+      "title": "Neo4j URI",
+      "description": "The URI for connecting to Neo4j",
+      "default": "bolt://localhost:7687",
+      "required": true,
+      "sensitive": false
+    },
+    "read_only": {
+      "type": "boolean",
+      "title": "Read Only Mode",
+      "description": "Allow only read-only queries, no write operations permitted.",
+      "default": false,
+      "required": false,
+      "sensitive": false
+    }
+  }
+}
